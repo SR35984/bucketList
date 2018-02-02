@@ -1,0 +1,20 @@
+<h3>Bucket List  |  <a [routerLink]="['/dashboard']">Home</a></h3>
+<app-user-logout></app-user-logout>
+<h2>{{ user.name }}'s Bucket List</h2>
+
+<h4>Done</h4>
+<table>
+	<tbody>
+		<tr *ngFor="let list of lists">
+		<td><input type="checkbox"></td>
+		<td>{{ list._user }} | </td>
+		<td>{{ list.title }} - </td>
+		<td>{{ list.description }} - </td>
+		<td>{{ list.createdAt }}</td>
+		</tr>
+	</tbody>
+</table>
+<h4>Pending</h4>
+
+
+<router-outlet></router-outlet>

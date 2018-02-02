@@ -1,0 +1,30 @@
+<h1>Welcome, {{ user?.name }}!</h1>
+
+<div class="list">
+  <form (submit)="onSubmit();" #createList="ngForm">
+    <input 
+      type="text"
+      name="title"
+      placeholder="title"
+      required
+      minlength="5"
+      [(ngModel)]="list.title"
+      #title="ngModel"
+    />
+    <small [hidden]= "title.valid || (title.untouched && !createList.submitted)">Minimum characters for title is 5.</small>
+    <br>
+    <input 
+      type="text"
+      name="description"
+      placeholder="description"
+      required
+      minlength="10"
+      [(ngModel)]="list.description"
+      #description="ngModel"
+    />
+    <small [hidden]= "description.valid || (description.untouched && !createList.submitted)">Minimum characters for description is 10.</small>
+    <br>
+    <button type="submit" [disabled]="!createList.valid">Add to List</button>
+  </form>
+</div>
+<router-outlet></router-outlet>
